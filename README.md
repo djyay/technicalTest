@@ -3,8 +3,11 @@
 ###Installing
  ```
  git clone https://github.com/djyay/technicalTest-.git
- composer install
- docker-compose up --build 
+ docker-compose --build
+docker-compose up
+docker exec -ti ubi_php bash
+cd ubi
+composer install 
  ```
 ## Executing test
 ```
