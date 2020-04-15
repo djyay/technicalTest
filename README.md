@@ -8,6 +8,8 @@ docker-compose up
 docker exec -ti ubi_php bash
 cd ubi
 composer install 
+php bin/console doctrine:database:create
+php bin/console doctrine:schema:create
  ```
 ## Executing test
 ```
