@@ -1,8 +1,20 @@
 #Technical test documentation
 
+###Installing
+ ```
+ git clone https://github.com/djyay/technicalTest-.git
+ composer install
+ docker-compose up --build 
+ ```
+## Executing test
+```
+php vendor/bin/simple-phpunit tests/
+```
+
 ###Access to API resources
 
 - /api/
+
 
 #### Add a student
 
@@ -87,7 +99,3 @@ Example
 - Method :
    - GET
 
-## Executing test
-```
-php vendor/bin/simple-phpunit tests/
-```
