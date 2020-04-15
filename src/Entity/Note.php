@@ -13,7 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
- *     attributes={"order"={"defaultOrder": "ASC"}}
+ *     attributes={"order"={"defaultOrder": "ASC"}},
+ *     collectionOperations={"post"},
+ *      itemOperations={"get"}
  *     )
  * @ORM\Entity(repositoryClass="App\Repository\NoteRepository")
  */
