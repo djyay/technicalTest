@@ -1,6 +1,6 @@
-#Technical test documentation
+# Technical test documentation
 
-###Installing
+### Installing
  ```
  git clone https://github.com/djyay/technicalTest.git
  docker-compose --build
@@ -16,7 +16,7 @@ php bin/console doctrine:schema:create
 php vendor/bin/simple-phpunit tests/
 ```
 
-###Access to API resources
+### Access to API resources
 
 - http://localhost/api/
 
@@ -62,7 +62,7 @@ Example
 ```
  
  
- #### Delete a student
+#### Delete a student
  
  - Resource :
     - require 'id' 
