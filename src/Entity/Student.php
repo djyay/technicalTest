@@ -115,9 +115,9 @@ class Student
         return $this->dateOfBirth;
     }
 
-    public function setDateOfBirth(\DateTimeInterface $DateOfBirth): self
+    public function setDateOfBirth(\DateTimeInterface $dateOfBirth): self
     {
-        $this->DateOfBirth = $DateOfBirth;
+        $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }

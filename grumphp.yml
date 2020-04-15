@@ -1,2 +1,6 @@
 parameters:
-    tasks: { make: null }
+    tasks:
+        phpstan:
+            level: 0
+
+

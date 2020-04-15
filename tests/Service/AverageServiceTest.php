@@ -8,9 +8,9 @@ use App\Entity\Note;
 use App\Entity\Student;
 use App\Repository\NoteRepository;
 use App\Service\AverageService;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use PHPUnit\Framework\TestCase;
 
-class AverageServiceTest extends WebTestCase
+class AverageServiceTest extends TestCase
 {
     public function testAverageTotal()
     {
@@ -88,7 +88,6 @@ class AverageServiceTest extends WebTestCase
         $average = $averageTotal->averageTotal();
         $this->assertEquals(0, $average);
     }
-
 
 
     public function testAverageStudentZero()
