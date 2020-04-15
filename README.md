@@ -13,13 +13,13 @@ php vendor/bin/simple-phpunit tests/
 
 ###Access to API resources
 
-- /api/
+- http://localhost/api/
 
 
 #### Add a student
 
 - Resource :
-  - /api/students
+  - http://localhost/api/students
 - Method :
    - POST
 - Body: 
@@ -39,7 +39,8 @@ Example
 #### Edit student information
 
 - Resource :
-  - /api/students/{id}
+  - require 'id' 
+  - http://localhost/api/students/{id}
 - Method :
    - PUT
 - Body: 
@@ -59,7 +60,8 @@ Example
  #### Delete a student
  
  - Resource :
-   - /api/students/{id}
+    - require 'id' 
+   - http://localhost/api/students/{id}
  - Method :
     - DELETE
 
@@ -68,10 +70,11 @@ Example
 #### Add a note to a student
 
 - Resource :
-  - /api/notes
+  - http://localhost/api/notes
 - Method :
    - POST
 - Body: 
+    - require 'id' 
     - JSON
  ****************
 Example
@@ -87,7 +90,8 @@ Example
 #### Get the average of all of a student's grades
 
 - Resource :
-  - /api/students/{id}/average
+  - require 'id' 
+  - http://localhost/api/students/{id}/average
 - Method :
    - GET
  
@@ -95,7 +99,7 @@ Example
 #### Get the general average of the class
 
 - Resource :
-  - /api/students/average/class
+  - http://localhost/api/students/average/class
 - Method :
    - GET
 
