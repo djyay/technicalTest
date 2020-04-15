@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.2",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "phpro/grumphp": "^0.18.0",
         "phpstan/phpstan": "^0.12.18",
         "sensio/framework-extra-bundle": "^5.1",
