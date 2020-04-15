@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Service;
-
 
 use App\Entity\Student;
 use App\Repository\NoteRepository;
@@ -16,35 +16,24 @@ class AverageService
         $this->noteRepository = $noteRepository;
     }
 
-    /**
-     * @return float
-     */
     public function averageTotal(): float
     {
         $sumOfNotes = 0;
         $noteTotal = $this->noteRepository->findAll();
-        foreach ($noteTotal as $note){
+        foreach ($noteTotal as $note) {
             $sumOfNotes += $note->getNote();
         }
-        $arevage =(count($noteTotal))? round($sumOfNotes / count($noteTotal),1) : 0;
 
-        return $arevage;
+        return count($noteTotal) ? round($sumOfNotes / count($noteTotal), 1) : 0.;
     }
 
-
-    /**
-     * @param Student $student
-     * @return float
-     */
     public function averageStudent(Student $student): float
     {
         $sumOfNotes = 0;
-        foreach ($student->getNotes() as $note){
+        foreach ($student->getNotes() as $note) {
             $sumOfNotes += $note->getNote();
         }
-        $arevage =(count($student->getNotes()))? round($sumOfNotes / count($student->getNotes()),1): 0;
 
-        return $arevage;
+        return count($student->getNotes()) ? round($sumOfNotes / count($student->getNotes()), 1) : 0.;
     }
-
 }

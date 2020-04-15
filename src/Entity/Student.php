@@ -51,7 +51,6 @@ class Student
 
     /**
      * @Assert\NotBlank
-     * @Assert\NotNull
      * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */
@@ -59,7 +58,6 @@ class Student
 
     /**
      * @Assert\NotBlank
-     * @Assert\NotNull
      * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */
@@ -67,11 +65,10 @@ class Student
 
     /**
      * @Assert\NotBlank
-     * @Assert\NotNull
      * @Assert\Type(\DateTimeInterface::class)
      * @ORM\Column(type="datetime")
      */
-    private $DateOfBirth;
+    private $dateOfBirth;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Note", mappedBy="student", cascade={"remove"})
@@ -115,7 +112,7 @@ class Student
 
     public function getDateOfBirth(): ?\DateTimeInterface
     {
-        return $this->DateOfBirth;
+        return $this->dateOfBirth;
     }
 
     public function setDateOfBirth(\DateTimeInterface $DateOfBirth): self

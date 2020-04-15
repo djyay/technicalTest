@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Tests\Service;
-
 
 use App\Entity\Note;
 use App\Entity\Student;
@@ -12,7 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AverageServiceTest extends WebTestCase
 {
-
     public function testAverageTotal()
     {
         $student1 = (new Student())
@@ -32,12 +31,12 @@ class AverageServiceTest extends WebTestCase
             ->setNote(11)
             ->setSubject('SVT')
             ->setStudent($student1);
-        $note3= (new Note())
+        $note3 = (new Note())
             ->setNote(8)
             ->setSubject('ANGLAIS')
             ->setStudent($student2);
 
-        $noteList = [$note,$note2,$note3];
+        $noteList = [$note, $note2, $note3];
 
         $noteRepository = $this->createMock(NoteRepository::class);
         $noteRepository->expects($this->exactly(1))->method('findAll')->willReturn($noteList);
@@ -49,12 +48,11 @@ class AverageServiceTest extends WebTestCase
 
         $average = $averageTotal->averageTotal();
 
-        $this->assertEquals(11.5,$average);
-
+        $this->assertEquals(11.5, $average);
     }
 
-
-    public function testAverageStudent(){
+    public function testAverageStudent()
+    {
         $note = (new Note())
             ->setNote(15.6)
             ->setSubject('MATH');
@@ -73,8 +71,41 @@ class AverageServiceTest extends WebTestCase
             ->setMethodsExcept(['averageStudent'])
             ->getMock();
         $average = $averageTotal->averageStudent($student);
-        $this->assertEquals(13.3,$average);
+        $this->assertEquals(13.3, $average);
     }
 
+    public function testAverageTotalZero()
+    {
+
+        $noteRepository = $this->createMock(NoteRepository::class);
+        $noteRepository->expects($this->exactly(1))->method('findAll')->willReturn([]);
+
+        $averageTotal = $this->getMockBuilder(AverageService::class)
+            ->setConstructorArgs([$noteRepository])
+            ->setMethodsExcept(['averageTotal'])
+            ->getMock();
+
+        $average = $averageTotal->averageTotal();
+        $this->assertEquals(0, $average);
+    }
+
+
+
+    public function testAverageStudentZero()
+    {
+
+        $student = (new Student())
+            ->setFirstName('John')
+            ->setLastName('doe')
+            ->setDateOfBirth(new \DateTime('1991-02-12'));
+
+
+        $averageTotal = $this->getMockBuilder(AverageService::class)
+            ->disableOriginalConstructor()
+            ->setMethodsExcept(['averageStudent'])
+            ->getMock();
+        $average = $averageTotal->averageStudent($student);
+        $this->assertEquals(0, $average);
+    }
 
 }

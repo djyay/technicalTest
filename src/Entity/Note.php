@@ -2,14 +2,9 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Annotation\ApiSubresource;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-use Symfony\Component\Serializer\Annotation\Groups;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 /**
  * @ApiResource(
@@ -25,35 +20,27 @@ class Note
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     *
      */
     private $id;
 
     /**
      * @Assert\NotBlank
-     * @Assert\NotNull
-     * * @Assert\Range(
+     *  @Assert\Range(
      *      min = 0,
-     *      max = 20,
-     *      minMessage = "You must be at least {{ limit }} tall to enter",
-     *      maxMessage = "You cannot be taller than {{ limit }} to enter"
+     *      max = 20
      * )
      * @ORM\Column(type="float")
-     *
      */
     private $note;
 
     /**
      * @Assert\NotBlank
-     * @Assert\NotNull
      * @ORM\Column(type="text")
-     *
      */
     private $subject;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Student", inversedBy="notes")
-     *
      */
     private $student;
 
