@@ -2,7 +2,7 @@
 
 ###Installing
  ```
- git clone https://github.com/djyay/technicalTest-.git
+ git clone https://github.com/djyay/technicalTest.git
  docker-compose --build
 docker-compose up
 docker exec -ti ubi_php bash
