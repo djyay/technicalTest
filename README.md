@@ -1,16 +1,30 @@
 # Technical test documentation
 
-### Installing
+### Installing step 1
  ```
  git clone https://github.com/djyay/technicalTest.git
- docker-compose --build
+ docker-compose build
 docker-compose up
 docker exec -ti ubi_php bash
 cd ubi
 composer install 
+
+ ```
+### Database step 2 
+   - http://localhost:8080
+   - user: root
+   - password : root
+   - name db: ubitransport   
+   
+if the database is not installed :
+ ```
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:create
+
  ```
+
+
+
 ## Executing test
 ```
 php vendor/bin/simple-phpunit tests/
@@ -35,7 +49,7 @@ Example
 {
   "lastName": "string",
   "firstName": "string",
-  "DateOfBirth": "1991-04-14"
+  "dateOfBirth": "1991-04-14"
  }
 
 ```
@@ -56,7 +70,7 @@ Example
 {
   "lastName": "string",
   "firstName": "string",
-  "DateOfBirth": "1991-04-14"
+  "dateOfBirth": "1991-04-14"
  }
 
 ```
